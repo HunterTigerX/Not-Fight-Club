@@ -1,0 +1,232 @@
+.battle__wrapper {
+    width: 100%;
+    height: 100%;
+    display: none;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.fight__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 30px 20px 0 20px;
+}
+
+.character__fight-wrapper {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.fight-name {
+    display: flex;
+    justify-content: center;
+}
+
+.character__fight-name {}
+
+.fight-avatar {
+    margin-top: 10px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: 1 / 2;
+}
+
+
+.character__fight-hp-red {
+    width: 100%;
+    height: 20px;
+    background-color: rgb(68, 68, 68);
+}
+
+.character__fight-hp-gray {
+    width: 40%;
+    height: 20px;
+    background-color: rgb(255, 0, 0);
+    position: relative;
+}
+
+.character__fight-hp-number {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.character__hp-current {}
+
+.character__hp-total {}
+
+.fight__description-wrapper {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.fight__description {
+    text-transform: capitalize;
+}
+
+.fight__description-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.fight__description-zones {
+    display: flex;
+    flex-direction: row;
+}
+
+.attack__zone-text {
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    margin-right: 20px;
+}
+
+.input__radio {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    min-height: 20px;
+
+}
+
+.input__radio-character {
+    flex-direction: row-reverse;
+    margin-right: 15px;
+}
+
+.input__radio-enemy {
+    flex-direction: row;
+    margin-left: 15px;
+}
+
+
+
+.defence__zone-text {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+
+
+.fight__description {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    row-gap: 5px;
+}
+
+.fight__description-attack {}
+
+.fight__description-defence {}
+
+.vertical__hr {
+    width: 2px;
+    height: 100%;
+    background: black;
+    margin: 0 auto;
+}
+
+.button__attack {
+    margin-top: 20px;
+    width: 25%;
+    align-self: center;
+}
+
+.enemy__fight-wrapper {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.enemy__fight-name {}
+
+.enemy__fight-avatar {}
+
+
+
+.enemy__fight-hp-red {
+    width: 100%;
+    height: 20px;
+    background-color: rgb(68, 68, 68);
+}
+
+.enemy__fight-hp-gray {
+    width: 40%;
+    height: 20px;
+    background-color: rgb(255, 0, 0);
+    position: relative;
+}
+
+.enemy__fight-hp-number {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.enemy__hp-current {}
+
+.enemy__hp-total {}
+
+.battle__footer {}
+
+.character__action-result {}
+
+.enemy__action-result {}
+
+input[type="checkbox"],
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #5f6368;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+    border-color: #1a73e8;
+    background: white;
+}
+
+input[type="checkbox"]:hover:not(:checked),
+input[type="radio"]:hover:not(:checked) {
+    border-color: #3c4043;
+}
+
+
+label {
+    cursor: pointer;
+    vertical-align: middle;
+    user-select: none;
+}
+
+input[type="checkbox"]:checked::before,
+input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #1a73e8;
+}

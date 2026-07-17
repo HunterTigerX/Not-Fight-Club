@@ -1,0 +1,31 @@
+.registration__wrapper-big {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration__wrapper {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registration__title {
+    text-align: center;
+}
+
+.registration__text {
+    width: 75%;
+    margin-left: 0;
+}
+
+.registration__input {
+    margin-top: 4px;
+    width: 75%;
+}
+
+.registration__button {
+    margin-top: 20px;
+}

@@ -1,0 +1,17 @@
+.settings__wrapper {
+    display: none;
+}
+
+.settings__list {
+    margin: 10px auto auto 15px;
+    gap: 15px;
+}
+
+
+
+.edit__name {
+    width: 50px;
+    height: 35px;
+    border-radius: 25%;
+    cursor: pointer;
+}
