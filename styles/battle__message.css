@@ -1,8 +1,5 @@
-
-
-
 .battle__message-wrapper {
-    display: flex;
+    display: none;
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -24,7 +21,6 @@
     background-color: rgba(26, 26, 26, 0.637);
     z-index: 2;
     color: white;
-
 }
 
 .battle__message {
@@ -42,11 +38,9 @@
     font-size: 5rem;
 }
 
-
-
 .battle__message-close {
     margin: 5px 5px auto auto;
-    background-color: black;
+    background-color: white;
     border-radius: 50%;
     width: 40px;
     height: 40px;

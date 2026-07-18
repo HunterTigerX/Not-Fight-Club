@@ -27,7 +27,6 @@
     justify-content: center;
 }
 
-.character__fight-name {}
 
 .fight-avatar {
     margin-top: 10px;
@@ -35,7 +34,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    aspect-ratio: 1 / 2;
+    aspect-ratio: 1 / 1.5;
 }
 
 
@@ -60,9 +59,7 @@
     margin-top: 10px;
 }
 
-.character__hp-current {}
 
-.character__hp-total {}
 
 .fight__description-wrapper {
     width: 30%;
@@ -128,9 +125,7 @@
     row-gap: 5px;
 }
 
-.fight__description-attack {}
 
-.fight__description-defence {}
 
 .vertical__hr {
     width: 2px;
@@ -151,9 +146,7 @@
     flex-direction: column;
 }
 
-.enemy__fight-name {}
 
-.enemy__fight-avatar {}
 
 
 
@@ -176,9 +169,7 @@
     margin-top: 10px;
 }
 
-.enemy__hp-current {}
 
-.enemy__hp-total {}
 
 .battle__footer {
     margin: auto auto 20px 20px;
@@ -187,9 +178,12 @@
     gap: 10px;
 }
 
-.character__action-result {}
+.bold {
+    font-weight: 800;
+    color: blue;
+}
 
-.enemy__action-result {}
+
 
 input[type="checkbox"],
 input[type="radio"] {

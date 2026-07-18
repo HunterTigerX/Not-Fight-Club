@@ -1,20 +1,20 @@
-const characterPageName = document.querySelector('.character__stats-name')
-const switchCharacter = document.querySelector('.character__avatar')
+
 const avatarList = document.querySelector('.avatar__list')
-const closeAvatarList = document.querySelector('.close__avatar-selection')
+const closeAvatarList = document.querySelectorAll('.close__avatar')
 const selectionCover = document.querySelector('.avatar__selection-cover')
 
 let tempAvatarName;
 
 if (currentPage === 'character') {
-    characterWrapper.style.display = 'flex';
+    goToCharacterPage();
 } else {
     characterWrapper.style.display = 'none';
 }
 
-if (playerName) {
-    characterPageName.innerText = playerName;
-}
+avatarList.addEventListener('wheel', (event) => {
+    event.preventDefault();
+    avatarList.scrollLeft += event.deltaY;
+}, { passive: false });
 
 function cleanSelectedCards() {
     const shadows = document.querySelectorAll('.cover__avatar');
@@ -24,8 +24,6 @@ function cleanSelectedCards() {
 }
 
 const cardList = ['Albedo', 'Alhaitham', 'AratakiItto', 'Neuvillette', 'Xiao']
-
-
 
 function fillCards() {
     for (let i = 0; i < cardList.length; i++) {
@@ -40,9 +38,6 @@ function fillCards() {
         cover.append(selected)
         selected.innerText = '✔️'
         card.append(cover)
-
-
-
 
         card.addEventListener('click', (e) => {
             cleanSelectedCards();
@@ -59,11 +54,23 @@ switchCharacter.addEventListener('click', (e) => {
     selectionCover.style.display = 'flex'
 })
 
-closeAvatarList.addEventListener('click', (e) => {
-    cleanSelectedCards();
-    selectionCover.style.display = 'none';
-    if (tempAvatarName) {
-        switchCharacter.style.backgroundImage = `url(../assets/avatars/${tempAvatarName}.png)`
-        localStorage.setItem('currentAvatar', tempAvatarName)
-    }
-})
+switchCharacter.style.backgroundImage = `url(../assets/avatars/${currentAvatar}.png)`
+
+function switchAvatars() {
+    switchCharacter.style.backgroundImage = `url(../assets/avatars/${tempAvatarName}.png)`
+    localStorage.setItem('currentAvatar', tempAvatarName)
+    currentAvatar = tempAvatarName
+}
+
+
+for (let i = 0; i < closeAvatarList.length; i++) {
+    closeAvatarList[i].addEventListener('click', (e) => {
+        if (e.target.classList.contains('close__avatar-selection') || e.target.classList.contains('avatar__selection-cover')) {
+            cleanSelectedCards();
+            selectionCover.style.display = 'none';
+            if (tempAvatarName) {
+                switchAvatars()
+            }
+        }
+    })
+}

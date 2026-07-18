@@ -6,6 +6,7 @@
     overflow: hidden;
     background-color: transparent;
     z-index: 1;
+    background-color: rgb(104, 103, 104, 0.5);
 }
 
 .avatar__selection-wrapper {
@@ -25,13 +26,15 @@
 .avatar__list {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     gap: 15px;
     margin: 30px 10px 0 10px;
+    padding: 0 15px;
     width: 100%;
-    height: auto;
+    height: 100%;
     max-height: 90%;
-    justify-content: space-between
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow: auto;
 }
 
 .avatar__selector {

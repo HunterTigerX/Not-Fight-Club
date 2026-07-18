@@ -39,13 +39,6 @@
     cursor: pointer;
 }
 
-
-.button__home {}
-
-.button__character {}
-
-.button__settings {}
-
 .horizontal__line {
     width: 100%;
     border: 2px solid black;

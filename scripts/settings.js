@@ -1,5 +1,4 @@
 
-const playerInputValue = document.querySelector('.player__name')
 const editName = document.querySelector('.edit__name')
 playerInputValue.value = playerName;
 
@@ -13,6 +12,8 @@ editName.addEventListener('click', (e) => {
             alert('Field cannot be empty')
         } else {
             localStorage.setItem("player__name", playerInputValue.value)
+            playerName = playerInputValue.value;
+            characterPageName.innerText = playerInputValue.value;
             playerInputValue.disabled = true
             editName.innerText = 'Edit'
         }

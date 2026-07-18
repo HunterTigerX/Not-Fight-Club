@@ -44,21 +44,44 @@ function endBattle(status) {
     } else if (status) {
         battleMessage.innerText = 'Victory!'
     }
-    const battleData = localStorage.getItem('currentBattle') ? JSON.parse(localStorage.getItem('currentBattle')) : false
-    if (battleData) {
-        battleData.inNewBattle = false;
-        battleData.currentPlayerHP = 150;
-        battleData.currentEnemy = false;
-        localStorage.setItem('currentBattle', JSON.stringify(battleData))
+
+    localStorage.removeItem("lastMessage");
+    localStorage.removeItem('currentBattle');
+}
+
+function writeReport(attacker, defendant, part, result) {
+    const body = document.createElement('div')
+    let endText
+
+    if (result) {
+        if (result === 15) {
+            endText = `and deal <span class="bold">${result} crit damage.</span>`
+        } else {
+            endText = `and deal <span class="bold">${result} damage.</span>`
+        }
+    } else {
+        endText = `but <span class="bold">${defendant}</span> was able to protect his <span class="bold">${part}</span>`
     }
 
+    body.insertAdjacentHTML('beforeend', `
+                        <span class="bold">${attacker}</span>
+                        <span>attacked</span>
+                        <span class="bold">${defendant}</span>
+                        <span>to</span>
+                        <span class="bold">${part}</span>
+                        <span> </span>
+                        ${endText}
+                    `);
+    battleFooter.append(body)
 }
 
 function calculateRound() {
 
     if (enemyDataLocal) {
-        const enemyAttackZones = ['Head', 'Neck', 'Body', 'Belly', 'Legs']
-        const enemyDefenceZones = ['Head', 'Neck', 'Body', 'Belly', 'Legs']
+        const report = document.createElement('div')
+
+        const enemyAttackZones = ['head', 'neck', 'body', 'belly', 'legs']
+        const enemyDefenceZones = ['head', 'neck', 'body', 'belly', 'legs']
         const numberOfEnemyAttackZones = enemyDataLocal.profile.attackZones
         const numberOfEnemyBlockZones = enemyDataLocal.profile.blockZones
 
@@ -79,33 +102,51 @@ function calculateRound() {
         if (battleData) {
 
             const parsedData = JSON.parse(battleData)
-
-
             const playerAttackTarget = localStorage.getItem('playerSelectedAttackZone')
-
             const isPlayersAttackCrit = isCrit();
+
             let playerSelectedDefenceZones = localStorage.getItem('playerSelectedDefenceZone') ? JSON.parse(localStorage.getItem('playerSelectedDefenceZone')) : []
 
             if (isPlayersAttackCrit) {
-                parsedData.currentEnemyHP = parsedData.currentEnemyHP - (parsedData.playerXP * 2) * 1.5
-
+                const damageDone = (parsedData.playerXP * 2) * 1.5;
+                parsedData.currentEnemyHP = parsedData.currentEnemyHP - damageDone
+                writeReport(playerName, enemyBattleName.innerText, playerAttackTarget, damageDone)
             } else {
                 if (!enemySelectedDefenceZones.includes(playerAttackTarget)) {
-                    parsedData.currentEnemyHP = parsedData.currentEnemyHP - parsedData.playerXP * 2
-
+                    const damageDone = (parsedData.playerXP * 2);
+                    parsedData.currentEnemyHP = parsedData.currentEnemyHP - damageDone
+                    writeReport(playerName, enemyBattleName.innerText, playerAttackTarget, damageDone)
+                } else {
+                    writeReport(playerName, enemyBattleName.innerText, playerAttackTarget, false)
                 }
             }
 
             for (let i = 0; i < enemySelectedAttackZones.length; i++) {
                 if (isCrit()) {
-                    parsedData.currentPlayerHP -= 15;
+                    if ((parsedData.currentPlayerHP - 15) <= 0) {
+                        parsedData.currentPlayerHP = 0
+                    } else {
+                        parsedData.currentPlayerHP -= 15
+                    }
+                    writeReport(enemyBattleName.innerText, playerName, enemySelectedAttackZones[i], 15)
                 } else {
-                    if (!playerSelectedDefenceZones.includes(enemySelectedAttackZones[i])) {
-                        parsedData.currentPlayerHP -= 10
+
+                    if (!playerSelectedDefenceZones.map(item => item.toLowerCase()).includes(enemySelectedAttackZones[i].toLowerCase())) {
+                        if ((parsedData.currentPlayerHP - 10) <= 0) {
+                            parsedData.currentPlayerHP = 0
+                        } else {
+                            parsedData.currentPlayerHP -= 10
+                        }
+                        writeReport(enemyBattleName.innerText, playerName, enemySelectedAttackZones[i], 10)
+                    } else {
+                        writeReport(enemyBattleName.innerText, playerName, enemySelectedAttackZones[i], false)
                     }
                 }
             }
 
+            localStorage.setItem('lastMessage', battleFooter.innerHTML);
+            localStorage.setItem('currentBattle', JSON.stringify(parsedData))
+            restoreBattle()
 
             if (parsedData.currentPlayerHP <= 0 && parsedData.currentEnemyHP <= 0) {
                 localStorage.setItem('playerStats', refreshStats(0, 0, 1))
@@ -113,14 +154,10 @@ function calculateRound() {
             }
             else if (parsedData.currentPlayerHP <= 0) {
                 localStorage.setItem('playerStats', refreshStats(0, 1, 0))
-                endBattle(true)
+                endBattle(false)
             } else if (parsedData.currentEnemyHP <= 0) {
                 localStorage.setItem('playerStats', refreshStats(1, 0, 0))
-                endBattle(false)
-            } else {
-                localStorage.setItem('currentBattle', JSON.stringify(parsedData))
-                restoreBattle()
-
+                endBattle(true)
             }
         }
     }

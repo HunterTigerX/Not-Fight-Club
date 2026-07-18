@@ -4,13 +4,7 @@ const buttonSettings = document.querySelector('.button__settings');
 const wins = document.querySelector('.wins__counter');
 const loses = document.querySelector('.loses__counter');
 const draws = document.querySelector('.draws__counter');
-
-
-function switchHomePage(element, name) {
-    hideHomePages();
-    localStorage.setItem("current__page", name);
-    element.style.display = 'flex';
-}
+const characterPageName = document.querySelector('.character__stats-name')
 
 buttonHome.addEventListener('click', (e) => {
     switchHomePage(homeWrapper, 'home');
@@ -31,10 +25,21 @@ function updateStats() {
 }
 updateStats()
 
+function refreshCharacterPage() {
+    let playerNameFresh = localStorage.getItem("player__name");
+
+    if (playerNameFresh) {
+        characterPageName.innerText = playerNameFresh;
+    }
+    switchCharacter.style.backgroundImage = `url(../assets/avatars/${currentAvatar}.png)`
+
+}
+
 function goToCharacterPage() {
     switchHomePage(characterWrapper, 'character');
     textHeader.innerText = 'Character'
     updateStats()
+    refreshCharacterPage()
 }
 
 buttonCharacter.addEventListener('click', (e) => {

@@ -22,7 +22,7 @@ const enemyProfiles = {
         profile: {
             attackZones: 2,
             blockZones: 1,
-            hp: 250,
+            hp: 110,
         }
     },
 
@@ -32,17 +32,16 @@ const enemyProfiles = {
         profile: {
             attackZones: 1,
             blockZones: 2,
-            hp: 240,
+            hp: 160,
         }
-    }
+    },
 
-    ,
     RockfondRifthound: {
         name: 'Rockfond Rifthound',
         profile: {
             attackZones: 2,
             blockZones: 1,
-            hp: 200,
+            hp: 100,
         }
     },
 
@@ -51,15 +50,16 @@ const enemyProfiles = {
         profile: {
             attackZones: 3,
             blockZones: 1,
-            hp: 110,
+            hp: 50,
         }
     },
+
     RuinGuard: {
         name: 'Ruin Guard',
         profile: {
             attackZones: 1,
-            blockZones: 3,
-            hp: 220,
+            blockZones: 2,
+            hp: 150,
         }
     },
 
@@ -68,7 +68,7 @@ const enemyProfiles = {
         profile: {
             attackZones: 2,
             blockZones: 2,
-            hp: 180,
+            hp: 75,
         }
     }
 };

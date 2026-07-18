@@ -16,6 +16,7 @@ const enemyTotalHp = document.querySelector('.enemy__hp-total')
 
 const attackButtons = document.querySelectorAll('input[name="attack"]');
 const defenceButtons = document.querySelectorAll('input[name="defence__name"]');
+const battleFooter = document.querySelector('.battle__footer');
 
 const attackButton = document.querySelector('.button__attack');
 // Добавить последние выбранные цели
@@ -32,8 +33,7 @@ function returnPlayerTotalHp(XP) {
 function restoreBattle() {
     const parsedData = localStorage.getItem('currentBattle') ? JSON.parse(localStorage.getItem('currentBattle')) : false;
 
-    if (parsedData && parsedData.inNewBattle) {
-        // localStorage.clear('currentBattle')
+    if (parsedData) {
         characterBattleName.innerText = playerName;
         characterAvatarImage.style.backgroundImage = `url(../assets/avatars/${currentAvatar}.png)`;
         characterHpBar.style.width = returnNewHealth(parsedData.currentPlayerHP, returnPlayerTotalHp(parsedData.playerXP))
@@ -49,6 +49,16 @@ function restoreBattle() {
         enemyHpBar.style.width = returnNewHealth(parsedData.currentEnemyHP, enemyDataLocal.profile.hp)
         enemyCurrentHpText.innerText = parsedData.currentEnemyHP
         enemyTotalHpText.innerText = enemyData.profile.hp
+
+        const savedHTML = localStorage.getItem('lastMessage');
+        if (savedHTML) {
+            const newBody = document.createElement('div');
+            newBody.innerHTML = savedHTML;
+            battleFooter.innerHTML = ''
+            battleFooter.append(newBody);
+            return newBody;
+        }
+
     } else {
         switchHomePage(homeWrapper, 'home');
         textHeader.innerText = 'Main'
@@ -61,7 +71,6 @@ function setupBattle(enemy) {
     const enemyData = enemyProfiles[enemy];
 
     const battleData = {
-        inNewBattle: true,
         currentPlayerHP: 150,
         currentEnemyHP: enemyData.profile.hp,
         currentEnemy: enemy,
@@ -139,7 +148,7 @@ for (let i = 0; i < defenceButtons.length; i++) {
 
 function isCrit() {
     const roll = Math.floor(Math.random() * 100)
-    if (roll > 50) {
+    if (roll > 90) {
         return true
     } else {
         return false
@@ -147,23 +156,31 @@ function isCrit() {
 }
 
 
-
-
-
-
 attackButton.addEventListener('click', (e) => {
     // End Rounds
+    battleFooter.innerHTML = ''
     calculateRound()
+
 })
 
 
 startBattleButton.addEventListener('click', (e) => {
     // Fight starts 
-    const enemiesArray = ['HilichurlBerserker', 'HydroAbyssMage', 'Kairagi', 'RockfondRifthound', 'RuinDrake', 'SuppressionMek', 'Mitachurl']
-    const id = Math.floor(Math.random() * enemiesArray.length) + 1
-    enemy = enemiesArray[id - 1]
-    setupBattle(enemy);
-    switchHomePage(battleWrapper, 'battle');
+    const parsedData = localStorage.getItem('currentBattle') ? JSON.parse(localStorage.getItem('currentBattle')) : false;
+
+    if (parsedData) {
+        switchHomePage(battleWrapper, 'battle');
+        restoreBattle()
+    } else {
+        localStorage.removeItem("lastMessage");
+        battleFooter.innerHTML = ''
+        const enemiesArray = ['HilichurlBerserker', 'HydroAbyssMage', 'Kairagi', 'RockfondRifthound', 'RuinDrake', 'SuppressionMek', 'Mitachurl']
+        const id = Math.floor(Math.random() * enemiesArray.length) + 1
+        enemy = enemiesArray[id - 1]
+        setupBattle(enemy);
+        switchHomePage(battleWrapper, 'battle');
+    }
+
 })
 
 

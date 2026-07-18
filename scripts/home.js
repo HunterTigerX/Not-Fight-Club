@@ -1,4 +1,3 @@
-const homePage = document.querySelector('.main__pages');
 const startBattleButton = document.querySelector('.start__battle');
 const battleWrapper = document.querySelector('.battle__wrapper');
 const homeWrapper = document.querySelector('.home__main');
@@ -9,14 +8,6 @@ const textHeader = document.querySelector('.text__header');
 
 const homePagesArray = ['home', 'character', 'settings', 'battle']
 
-
-function hideHomePages() {
-    if (homePage) {
-        Array.from(homePage.children).forEach(child => {
-            child.style.display = 'none';
-        });
-    }
-}
 
 function selectHomePage(page) {
     if (page === 'settings') {
