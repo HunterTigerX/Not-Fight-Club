@@ -3,9 +3,8 @@ const switchCharacter = document.querySelector('.character__avatar')
 const avatarList = document.querySelector('.avatar__list')
 const closeAvatarList = document.querySelector('.close__avatar-selection')
 const selectionCover = document.querySelector('.avatar__selection-cover')
-const currentAvatar = localStorage.getItem('currentAvatar')
 
-let tempAvatarLink;
+let tempAvatarName;
 
 if (currentPage === 'character') {
     characterWrapper.style.display = 'flex';
@@ -26,9 +25,6 @@ function cleanSelectedCards() {
 
 const cardList = ['Albedo', 'Alhaitham', 'AratakiItto', 'Neuvillette', 'Xiao']
 
-if (currentAvatar) {
-    switchCharacter.style.backgroundImage = `url(../assets/avatars/${currentAvatar}.png)`
-}
 
 
 function fillCards() {
@@ -51,7 +47,7 @@ function fillCards() {
         card.addEventListener('click', (e) => {
             cleanSelectedCards();
             card.children[0].style.display = 'flex';
-            tempAvatarLink = cardList[i]
+            tempAvatarName = cardList[i]
         })
         avatarList.append(card)
     }
@@ -66,8 +62,8 @@ switchCharacter.addEventListener('click', (e) => {
 closeAvatarList.addEventListener('click', (e) => {
     cleanSelectedCards();
     selectionCover.style.display = 'none';
-    if (tempAvatarLink) {
-        switchCharacter.style.backgroundImage = `url(../assets/avatars/${tempAvatarLink}.png)`
-        localStorage.setItem('currentAvatar', tempAvatarLink)
+    if (tempAvatarName) {
+        switchCharacter.style.backgroundImage = `url(../assets/avatars/${tempAvatarName}.png)`
+        localStorage.setItem('currentAvatar', tempAvatarName)
     }
 })

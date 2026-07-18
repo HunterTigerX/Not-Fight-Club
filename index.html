@@ -7,6 +7,7 @@
     <title>Not Fight Club</title>
     <link rel="stylesheet" href="./styles/avatar__selection-wrapper.css">
     <link rel="stylesheet" href="./styles/battle__wrapper.css">
+    <link rel="stylesheet" href="./styles/battle__message.css">
     <link rel="stylesheet" href="./styles/character__wrapper.css">
     <link rel="stylesheet" href="./styles/home__wrapper.css">
     <link rel="stylesheet" href="./styles/registration.css">
@@ -38,7 +39,7 @@
                 <hr class="horizontal__line">
                 <div class="main__pages">
                     <div class="home__main">
-                        <button class="button home__button">Fight!</button>
+                        <button class="button start__battle">Fight!</button>
                     </div>
                     <div class="character__main">
                         <div class="character__avatar"></div>
@@ -52,6 +53,10 @@
                                 <span>Loses:</span>
                                 <span class="score loses__counter">0</span>
                             </div>
+                            <div class="yellow">
+                                <span>Draws:</span>
+                                <span class="score draws__counter">0</span>
+                            </div>
                         </div>
                     </div>
                     <div class="settings__list">
@@ -64,8 +69,8 @@
                             <div class="character__fight-wrapper">
                                 <div class="character__fight-name fight-name"></div>
                                 <div class="fight-avatar character__fight-avatar"></div>
-                                <div class="character__fight-hp-red">
-                                    <div class="character__fight-hp-gray"></div>
+                                <div class="character__fight-hp-gray">
+                                    <div class="character__fight-hp-red"></div>
                                 </div>
                                 <div class="character__fight-hp-number">
                                     <span class="character__hp-current"></span>
@@ -78,56 +83,51 @@
                                 <div class="fight__description-zones">
                                     <div class="fight__description fight__description-attack">
                                         <div class="attack__zone-text">Attack Zones</div>
-                                        <div class="input__radio input__radio-character">
+                                        <div class="input__radio input__radio-attack">
                                             <input type="radio" id="attack__head" name="attack" value="Head">
                                             <label for="attack__head">Head</label>
                                         </div>
-                                        <div class="input__radio input__radio-character">
+                                        <div class="input__radio input__radio-attack">
                                             <input type="radio" id="attack__neck" name="attack" value="neck">
                                             <label for="attack__neck">neck</label>
                                         </div>
-                                        <div class="input__radio input__radio-character">
+                                        <div class="input__radio input__radio-attack">
                                             <input type="radio" id="attack__body" name="attack" value="body">
                                             <label for="attack__body">body</label>
                                         </div>
-                                        <div class="input__radio input__radio-character">
+                                        <div class="input__radio input__radio-attack">
                                             <input type="radio" id="attack__belly" name="attack" value="belly">
                                             <label for="attack__belly">belly</label>
                                         </div>
-                                        <div class="input__radio input__radio-character">
+                                        <div class="input__radio input__radio-attack">
                                             <input type="radio" id="attack__legs" name="attack" value="legs">
                                             <label for="attack__legs">legs</label>
                                         </div>
-
-
-
-
-
-
-
                                     </div>
+
+
                                     <div class="vertical__hr"></div>
 
                                     <div class="fight__description fight__description-defence">
                                         <div class="defence__zone-text">Defence Zones</div>
-                                        <div class="input__radio input__radio-enemy"><input type="checkbox"
-                                                id="defence__head" name="defence__head-name" value="Head">
+                                        <div class="input__radio input__radio-defence"><input type="checkbox"
+                                                id="defence__head" name="defence__name" value="Head">
                                             <label for="defence__head">Head</label>
                                         </div>
-                                        <div class="input__radio input__radio-enemy"><input type="checkbox"
-                                                id="defence__neck" name="defence__neck-name" value="neck">
+                                        <div class="input__radio input__radio-defence"><input type="checkbox"
+                                                id="defence__neck" name="defence__name" value="neck">
                                             <label for="defence__neck">neck</label>
                                         </div>
-                                        <div class="input__radio input__radio-enemy"><input type="checkbox"
-                                                id="defence__body" name="defence__body-name" value="body">
+                                        <div class="input__radio input__radio-defence"><input type="checkbox"
+                                                id="defence__body" name="defence__name" value="body">
                                             <label for="defence__body">body</label>
                                         </div>
-                                        <div class="input__radio input__radio-enemy"><input type="checkbox"
-                                                id="defence__belly" name="defence__belly-name" value="belly">
+                                        <div class="input__radio input__radio-defence"><input type="checkbox"
+                                                id="defence__belly" name="defence__name" value="belly">
                                             <label for="defence__belly">belly</label>
                                         </div>
-                                        <div class="input__radio input__radio-enemy"><input type="checkbox"
-                                                id="defence__legs" name="defence__legs-name" value="legs">
+                                        <div class="input__radio input__radio-defence"><input type="checkbox"
+                                                id="defence__legs" name="defence__name" value="legs">
                                             <label for="defence__legs">legs</label>
                                         </div>
 
@@ -146,8 +146,10 @@
                             <div class="enemy__fight-wrapper">
                                 <div class="enemy__fight-name fight-name"></div>
                                 <div class="fight-avatar enemy__fight-avatar"></div>
-                                <div class="enemy__fight-hp-red">
-                                    <div class="enemy__fight-hp-gray"></div>
+                                <div class="enemy__fight-hp-gray">
+                                    <div class="enemy__fight-hp-red">
+
+                                    </div>
                                 </div>
                                 <div class="enemy__fight-hp-number">
                                     <span class="enemy__hp-current"></span>
@@ -156,19 +158,24 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <hr class="horizontal__line">
+                        <hr class="horizontal__line">
                         <div class="battle__footer">
-                            <div class="character__action-result"></div>>
-                            <div class="enemy__action-result"></div>>
-                        </div> -->
+                            <div class="character__action-result">Text 1</div>
+                            <div class="enemy__action-result">Text 2</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
 
-
-
+        <div class="battle__message-wrapper close-message">
+            <div class="battle__message-screen">
+                <div class="battle__message">
+                </div>
+                <dutton class="battle__message-close close-message">X</dutton>
+            </div>
+        </div>
 
 
 
@@ -184,11 +191,13 @@
     </main>
     <footer></footer>
 </body>
+<script src="./scripts/enemies.js"></script>
 <script src="./scripts/registration.js"></script>
 <script src="./scripts/home.js"></script>
 <script src="./scripts/nav.js"></script>
 <script src="./scripts/character.js"></script>
 <script src="./scripts/settings.js"></script>
 <script src="./scripts/battle.js"></script>
+<script src="./scripts/calculations.js"></script>
 
 </html>

@@ -11,7 +11,7 @@
 }
 
 .home__header {
-    width: 97%;
+    width: 95%;
     height: 10vh;
     display: flex;
     flex-direction: row;
@@ -65,7 +65,7 @@
     justify-content: center;
 }
 
-.home__button {
+.start__battle {
     padding: 20px 40px;
     font-size: 24px;
     cursor: pointer;

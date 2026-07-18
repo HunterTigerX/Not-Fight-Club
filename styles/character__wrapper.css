@@ -47,3 +47,8 @@
     color: green;
     grid-row-start: 2;
 }
+
+.yellow {
+    color: rgb(170, 170, 1);
+    grid-row-start: 2;
+}
