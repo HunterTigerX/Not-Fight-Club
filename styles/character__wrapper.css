@@ -1,0 +1,48 @@
+.character__wrapper {
+    display: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.character__main {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    width: 97%;
+    margin: 20px auto 0 auto;
+}
+
+.character__avatar {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../assets/avatars/Neuvillette.png);
+    width: 420px;
+    height: 720px;
+    cursor: pointer;
+}
+
+.character__stats {
+    display: grid;
+    align-content: start;
+    gap: 10px;
+    font-size: 30px;
+}
+
+.character__stats-name {
+    grid-column: span 2 / span 2;
+}
+
+.red {
+    color: red;
+    grid-row-start: 2;
+}
+
+.green {
+    color: green;
+    grid-row-start: 2;
+}
+
+.yellow {
+    color: rgb(170, 170, 1);
+    grid-row-start: 2;
+}

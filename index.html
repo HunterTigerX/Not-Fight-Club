@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Fight Club</title>
+    <link rel="stylesheet" href="./styles/avatar__selection-wrapper.css">
+    <link rel="stylesheet" href="./styles/battle__wrapper.css">
+    <link rel="stylesheet" href="./styles/battle__message.css">
+    <link rel="stylesheet" href="./styles/character__wrapper.css">
+    <link rel="stylesheet" href="./styles/home__wrapper.css">
+    <link rel="stylesheet" href="./styles/registration.css">
+    <link rel="stylesheet" href="./styles/settings__wrapper.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="icon" href="./favicon.ico">
+</head>
+
+<body>
+    <header></header>
+
+    <main class="main">
+        <div class="registration__wrapper-big">
+            <div class="registration__wrapper">
+                <h1 class="registration__title">Create Your Character</h1>
+                <div class="registration__text">Character Name</div>
+                <input class="registration__input" type="text">
+                <button class="button registration__button">Create Character</button>
+            </div>
+        </div>
+
+        <div class="home__wrapper-big">
+            <div class="home__wrapper">
+
+                <div class="home__header">
+                    <h2 class="text__header">Main</h2>
+                    <div class="home__header__buttons">
+                        <button class="button__nav button__home">🏠</button>
+                        <button class="button__nav button__character">🕹</button>
+                        <button class="button__nav button__settings">⚙</button>
+                    </div>
+                </div>
+
+                <hr class="horizontal__line">
+
+                <div class="main__pages">
+                    <div class="home__main">
+                        <button class="button start__battle">Fight!</button>
+                    </div>
+
+                    <div class="character__main">
+                        <div class="character__avatar"></div>
+                        <div class="character__stats">
+                            <div class="character__stats-name"></div>
+                            <div class="green">
+                                <span>Wins:</span>
+                                <span class="score wins__counter">0</span>
+                            </div>
+                            <div class="red">
+                                <span>Loses:</span>
+                                <span class="score loses__counter">0</span>
+                            </div>
+                            <div class="yellow">
+                                <span>Draws:</span>
+                                <span class="score draws__counter">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings__list">
+                        <div class="text player__name-text">Player Name:</div>
+                        <input class="player__name" disabled></input>
+                        <button class="button edit__name">Edit</button>
+                    </div>
+
+                    <div class="battle__wrapper">
+                        <div class="fight__wrapper">
+                            <div class="character__fight-wrapper">
+                                <div class="character__fight-name fight-name"></div>
+                                <div class="fight-avatar character__fight-avatar"></div>
+                                <div class="character__fight-hp-gray">
+                                    <div class="character__fight-hp-red"></div>
+                                </div>
+                                <div class="character__fight-hp-number">
+                                    <span class="character__hp-current"></span>
+                                    /
+                                    <span class="character__hp-total"></span>
+                                </div>
+                            </div>
+                            <div class="fight__description-wrapper">
+                                <div class="fight__description-text">Please pick 1 Attack zone and 2 Defence zones</div>
+                                <div class="fight__description-zones">
+                                    <div class="fight__description fight__description-attack">
+                                        <div class="attack__zone-text">Attack Zones</div>
+                                        <div class="input__radio input__radio-attack">
+                                            <input type="radio" id="attack__head" name="attack" value="Head">
+                                            <label for="attack__head">head</label>
+                                        </div>
+                                        <div class="input__radio input__radio-attack">
+                                            <input type="radio" id="attack__neck" name="attack" value="neck">
+                                            <label for="attack__neck">neck</label>
+                                        </div>
+                                        <div class="input__radio input__radio-attack">
+                                            <input type="radio" id="attack__body" name="attack" value="body">
+                                            <label for="attack__body">body</label>
+                                        </div>
+                                        <div class="input__radio input__radio-attack">
+                                            <input type="radio" id="attack__belly" name="attack" value="belly">
+                                            <label for="attack__belly">belly</label>
+                                        </div>
+                                        <div class="input__radio input__radio-attack">
+                                            <input type="radio" id="attack__legs" name="attack" value="legs">
+                                            <label for="attack__legs">legs</label>
+                                        </div>
+                                    </div>
+                                    <div class="vertical__hr"></div>
+                                    <div class="fight__description fight__description-defence">
+                                        <div class="defence__zone-text">Defence Zones</div>
+                                        <div class="input__radio input__radio-defence"><input type="checkbox"
+                                                id="defence__head" name="defence__name" value="Head">
+                                            <label for="defence__head">head</label>
+                                        </div>
+                                        <div class="input__radio input__radio-defence"><input type="checkbox"
+                                                id="defence__neck" name="defence__name" value="neck">
+                                            <label for="defence__neck">neck</label>
+                                        </div>
+                                        <div class="input__radio input__radio-defence"><input type="checkbox"
+                                                id="defence__body" name="defence__name" value="body">
+                                            <label for="defence__body">body</label>
+                                        </div>
+                                        <div class="input__radio input__radio-defence"><input type="checkbox"
+                                                id="defence__belly" name="defence__name" value="belly">
+                                            <label for="defence__belly">belly</label>
+                                        </div>
+                                        <div class="input__radio input__radio-defence"><input type="checkbox"
+                                                id="defence__legs" name="defence__name" value="legs">
+                                            <label for="defence__legs">legs</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="button button__attack">Attack</button>
+                            </div>
+                            <div class="enemy__fight-wrapper">
+                                <div class="enemy__fight-name fight-name"></div>
+                                <div class="fight-avatar enemy__fight-avatar"></div>
+                                <div class="enemy__fight-hp-gray">
+                                    <div class="enemy__fight-hp-red">
+
+                                    </div>
+                                </div>
+                                <div class="enemy__fight-hp-number">
+                                    <span class="enemy__hp-current"></span>
+                                    /
+                                    <span class="enemy__hp-total"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="horizontal__line">
+                        <div class="battle__footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="battle__message-wrapper close-message">
+            <div class="battle__message-screen">
+                <div class="battle__message">
+                </div>
+                <button class="battle__message-close close-message">X</button>
+            </div>
+        </div>
+
+        <div class="avatar__selection-cover close__avatar">
+            <div class="avatar__selection-wrapper">
+                <div class="avatar__list">
+                </div>
+                <button class="close__avatar-selection close__avatar">X</button>
+            </div>
+        </div>
+
+    </main>
+    <footer></footer>
+</body>
+<script src="./scripts/enemies.js"></script>
+<script src="./scripts/registration.js"></script>
+<script src="./scripts/home.js"></script>
+<script src="./scripts/nav.js"></script>
+<script src="./scripts/character.js"></script>
+<script src="./scripts/settings.js"></script>
+<script src="./scripts/battle.js"></script>
+<script src="./scripts/calculations.js"></script>
+
+</html>
