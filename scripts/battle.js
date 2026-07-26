@@ -167,7 +167,7 @@ attackButton.addEventListener('click', (e) => {
 startBattleButton.addEventListener('click', (e) => {
     // Fight starts 
     const parsedData = localStorage.getItem('currentBattle') ? JSON.parse(localStorage.getItem('currentBattle')) : false;
-
+    textHeader.innerText = 'Battle'
     if (parsedData) {
         switchHomePage(battleWrapper, 'battle');
         restoreBattle()
