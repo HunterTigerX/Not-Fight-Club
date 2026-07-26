@@ -60,8 +60,8 @@ function restoreBattle() {
         }
 
     } else {
-        switchHomePage(homeWrapper, 'home');
-        textHeader.innerText = 'Main'
+        currentPage = localStorage.getItem("current__page");
+        selectHomePage(currentPage)
     }
 }
 
