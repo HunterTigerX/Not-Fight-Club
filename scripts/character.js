@@ -29,7 +29,7 @@ function fillCards() {
     for (let i = 0; i < cardList.length; i++) {
         const card = document.createElement('div');
         card.classList.add('avatar__selector');
-        card.style.backgroundImage = `url(../assets/avatars/${cardList[i]}.png)`
+        card.style.backgroundImage = `url(./assets/avatars/${cardList[i]}.png)`
 
         const cover = document.createElement('div');
         cover.classList.add('cover__avatar');
@@ -54,10 +54,10 @@ switchCharacter.addEventListener('click', (e) => {
     selectionCover.style.display = 'flex'
 })
 
-switchCharacter.style.backgroundImage = `url(../assets/avatars/${currentAvatar}.png)`
+switchCharacter.style.backgroundImage = `url(./assets/avatars/${currentAvatar}.png)`
 
 function switchAvatars() {
-    switchCharacter.style.backgroundImage = `url(../assets/avatars/${tempAvatarName}.png)`
+    switchCharacter.style.backgroundImage = `url(./assets/avatars/${tempAvatarName}.png)`
     localStorage.setItem('currentAvatar', tempAvatarName)
     currentAvatar = tempAvatarName
 }

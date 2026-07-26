@@ -35,7 +35,7 @@ function restoreBattle() {
 
     if (parsedData) {
         characterBattleName.innerText = playerName;
-        characterAvatarImage.style.backgroundImage = `url(../assets/avatars/${currentAvatar}.png)`;
+        characterAvatarImage.style.backgroundImage = `url(./assets/avatars/${currentAvatar}.png)`;
         characterHpBar.style.width = returnNewHealth(parsedData.currentPlayerHP, returnPlayerTotalHp(parsedData.playerXP))
         characterCurrentHpText.innerText = parsedData.currentPlayerHP
         characterTotalHpText.innerText = 150
@@ -45,7 +45,7 @@ function restoreBattle() {
         enemyDataLocal = enemyProfiles[enemyName]
 
         enemyBattleName.innerText = enemyData.name;
-        enemyAvatarImage.style.backgroundImage = `url(../assets/enemies/${parsedData.currentEnemy}.png)`;
+        enemyAvatarImage.style.backgroundImage = `url(./assets/enemies/${parsedData.currentEnemy}.png)`;
         enemyHpBar.style.width = returnNewHealth(parsedData.currentEnemyHP, enemyDataLocal.profile.hp)
         enemyCurrentHpText.innerText = parsedData.currentEnemyHP
         enemyTotalHpText.innerText = enemyData.profile.hp

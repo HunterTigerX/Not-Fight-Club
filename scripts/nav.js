@@ -31,7 +31,7 @@ function refreshCharacterPage() {
     if (playerNameFresh) {
         characterPageName.innerText = playerNameFresh;
     }
-    switchCharacter.style.backgroundImage = `url(../assets/avatars/${currentAvatar}.png)`
+    switchCharacter.style.backgroundImage = `url(./assets/avatars/${currentAvatar}.png)`
 
 }
 
