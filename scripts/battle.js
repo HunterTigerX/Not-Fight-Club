@@ -33,7 +33,7 @@ function returnPlayerTotalHp(XP) {
 function restoreBattle() {
     
     const parsedData = localStorage.getItem('currentBattle') ? JSON.parse(localStorage.getItem('currentBattle')) : false;
-    console.log('parsedData', parsedData)
+
     if (parsedData) {
         characterBattleName.innerText = playerName;
         characterAvatarImage.style.backgroundImage = `url(./assets/avatars/${currentAvatar}.png)`;
@@ -63,7 +63,6 @@ function restoreBattle() {
     } else {
         currentPage = localStorage.getItem("current__page");
         selectHomePage(currentPage)
-            console.log('currentPage', currentPage)
     }
 }
 

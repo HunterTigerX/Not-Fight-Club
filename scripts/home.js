@@ -10,7 +10,7 @@ const homePagesArray = ['home', 'character', 'settings', 'battle']
 
 
 function selectHomePage(page) {
-    console.log('page')
+
     if (page === 'settings') {
         settingsWrapper.style.display = 'flex';
         textHeader.innerText = 'Settings'
