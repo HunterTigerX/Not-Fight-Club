@@ -10,6 +10,7 @@ const homePagesArray = ['home', 'character', 'settings', 'battle']
 
 
 function selectHomePage(page) {
+    console.log('page')
     if (page === 'settings') {
         settingsWrapper.style.display = 'flex';
         textHeader.innerText = 'Settings'
@@ -22,6 +23,10 @@ function selectHomePage(page) {
     } else if (page === 'battle') {
         battleWrapper.style.display = 'flex';
         textHeader.innerText = 'Battle'
+    } else {
+        homeWrapper.style.display = 'flex';
+        textHeader.innerText = 'Main'
+        localStorage.setItem("current__page", "home");
     }
 }
 

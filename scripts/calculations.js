@@ -143,7 +143,7 @@ function calculateRound() {
                     }
                 }
             }
-
+            localStorage.setItem("current__page", "home");
             localStorage.setItem('lastMessage', battleFooter.innerHTML);
             localStorage.setItem('currentBattle', JSON.stringify(parsedData))
             restoreBattle()
