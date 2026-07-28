@@ -41,6 +41,7 @@ registrationButton.addEventListener('click', (e) => {
     } else {
         localStorage.setItem("player__name", registrationInput.value);
         localStorage.setItem('currentAvatar', 'Neuvillette')
+        playerName = registrationInput.value;
         currentAvatar = 'Neuvillette'
         registrationWrapperBig.style.display = "none";
         homeWrapperBig.style.display = "flex";

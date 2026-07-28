@@ -110,14 +110,14 @@ function calculateRound() {
             if (isPlayersAttackCrit) {
                 const damageDone = (parsedData.playerXP * 2) * 1.5;
                 parsedData.currentEnemyHP = parsedData.currentEnemyHP - damageDone
-                writeReport(playerName, enemyBattleName.innerText, playerAttackTarget, damageDone)
+                writeReport(characterBattleName.innerText, enemyBattleName.innerText, playerAttackTarget, damageDone)
             } else {
                 if (!enemySelectedDefenceZones.includes(playerAttackTarget)) {
                     const damageDone = (parsedData.playerXP * 2);
                     parsedData.currentEnemyHP = parsedData.currentEnemyHP - damageDone
-                    writeReport(playerName, enemyBattleName.innerText, playerAttackTarget, damageDone)
+                    writeReport(characterBattleName.innerText, enemyBattleName.innerText, playerAttackTarget, damageDone)
                 } else {
-                    writeReport(playerName, enemyBattleName.innerText, playerAttackTarget, false)
+                    writeReport(characterBattleName.innerText, enemyBattleName.innerText, playerAttackTarget, false)
                 }
             }
 
@@ -128,7 +128,7 @@ function calculateRound() {
                     } else {
                         parsedData.currentPlayerHP -= 15
                     }
-                    writeReport(enemyBattleName.innerText, playerName, enemySelectedAttackZones[i], 15)
+                    writeReport(enemyBattleName.innerText, characterBattleName.innerText, enemySelectedAttackZones[i], 15)
                 } else {
 
                     if (!playerSelectedDefenceZones.map(item => item.toLowerCase()).includes(enemySelectedAttackZones[i].toLowerCase())) {
@@ -137,9 +137,9 @@ function calculateRound() {
                         } else {
                             parsedData.currentPlayerHP -= 10
                         }
-                        writeReport(enemyBattleName.innerText, playerName, enemySelectedAttackZones[i], 10)
+                        writeReport(enemyBattleName.innerText, characterBattleName.innerText, enemySelectedAttackZones[i], 10)
                     } else {
-                        writeReport(enemyBattleName.innerText, playerName, enemySelectedAttackZones[i], false)
+                        writeReport(enemyBattleName.innerText, characterBattleName.innerText, enemySelectedAttackZones[i], false)
                     }
                 }
             }
