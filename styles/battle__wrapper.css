@@ -183,6 +183,10 @@
     color: blue;
 }
 
+.damage {
+    font-weight: 800;
+    color: rgb(0, 0, 0);
+}
 
 
 input[type="checkbox"],

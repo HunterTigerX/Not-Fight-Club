@@ -55,12 +55,12 @@ function writeReport(attacker, defendant, part, result) {
 
     if (result) {
         if (result === 15) {
-            endText = `and deal <span class="bold">${result} crit damage.</span>`
+            endText = `and deal <span class="bold damage">${result} crit damage.</span>`
         } else {
-            endText = `and deal <span class="bold">${result} damage.</span>`
+            endText = `and deal <span class="bold damage">${result} damage.</span>`
         }
     } else {
-        endText = `but <span class="bold">${defendant}</span> was able to protect his <span class="bold">${part}</span>`
+        endText = `but <span class="bold damage">${defendant}</span> was able to protect his <span class="bold">${part}</span>`
     }
 
     body.insertAdjacentHTML('beforeend', `
