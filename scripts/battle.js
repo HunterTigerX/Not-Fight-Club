@@ -31,11 +31,11 @@ function returnPlayerTotalHp(XP) {
 }
 
 function restoreBattle() {
-    
+
     const parsedData = localStorage.getItem('currentBattle') ? JSON.parse(localStorage.getItem('currentBattle')) : false;
 
     if (parsedData) {
-        characterBattleName.innerText = playerName;
+        characterBattleName.innerText = localStorage.getItem('player__name') ? localStorage.getItem('player__name') : playerName
         characterAvatarImage.style.backgroundImage = `url(./assets/avatars/${currentAvatar}.png)`;
         characterHpBar.style.width = returnNewHealth(parsedData.currentPlayerHP, returnPlayerTotalHp(parsedData.playerXP))
         characterCurrentHpText.innerText = parsedData.currentPlayerHP
@@ -169,6 +169,7 @@ startBattleButton.addEventListener('click', (e) => {
     // Fight starts 
     const parsedData = localStorage.getItem('currentBattle') ? JSON.parse(localStorage.getItem('currentBattle')) : false;
     textHeader.innerText = 'Battle'
+    characterBattleName.innerText = localStorage.getItem('player__name') ? localStorage.getItem('player__name') : playerName
     if (parsedData) {
         switchHomePage(battleWrapper, 'battle');
         restoreBattle()
