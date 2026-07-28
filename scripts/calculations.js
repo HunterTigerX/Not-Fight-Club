@@ -68,7 +68,7 @@ function writeReport(attacker, defendant, part, result) {
                         <span>attacked</span>
                         <span class="bold">${defendant}</span>
                         <span>to</span>
-                        <span class="bold">${part}</span>
+                        <span class="bold part">${part}</span>
                         <span> </span>
                         ${endText}
                     `);
